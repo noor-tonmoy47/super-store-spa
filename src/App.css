@@ -1,42 +1,246 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+        body {
+          margin: 0;
+          font-family: 'Inter', sans-serif;
+        }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+        .app-main-container, .app-container {
+          min-height: 100vh;
+          background-color: #f9fafb; /* gray-50 */
+          font-family: 'Inter', sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 1rem; /* p-4 */
+        }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+        /* Specific for loading and login screen alignment */
+        .app-container {
+            justify-content: center;
+        }
 
-.card {
-  padding: 2em;
-}
+        .loading-card, .login-card {
+            padding: 1.5rem; /* p-6 / p-8 */
+            background-color: #ffffff; /* bg-white */
+            border-radius: 0.75rem; /* rounded-lg / rounded-xl */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md / shadow-lg */
+            text-align: center;
+            width: 100%;
+            max-width: 28rem; /* max-w-md */
+        }
 
-.read-the-docs {
-  color: #888;
-}
+        .loading-text {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #4b5563; /* text-gray-700 */
+        }
+
+        .login-title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #4f46e5; /* text-indigo-700 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        .login-message {
+            font-size: 1.125rem; /* text-lg */
+            color: #4b5563; /* text-gray-700 */
+            margin-bottom: 1rem; /* mb-4 */
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 0.75rem 1.5rem; /* px-6 py-3 */
+            background-color: #4f46e5; /* bg-indigo-600 */
+            color: #ffffff; /* text-white */
+            font-weight: 600; /* font-semibold */
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            transition: background-color 0.3s ease; /* transition duration-300 */
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #4338ca; /* hover:bg-indigo-700 */
+        }
+
+        /* Header Styles */
+        .app-header {
+          background-color: #ffffff; /* bg-white */
+          box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+          padding: 1rem 1.5rem; /* py-4 px-6 */
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom-left-radius: 0.75rem; /* rounded-b-xl */
+          border-bottom-right-radius: 0.75rem;
+          width: 100%;
+          box-sizing: border-box; /* ensure padding is included in width */
+        }
+
+        .header-title {
+          font-size: 1.5rem; /* text-2xl */
+          font-weight: 700; /* font-bold */
+          color: #1a202c; /* text-gray-900 */
+        }
+
+        .nav-buttons {
+          display: flex;
+          align-items: center;
+          gap: 1rem; /* space-x-4 */
+        }
+
+        .nav-button {
+          padding: 0.5rem 1rem; /* px-4 py-2 */
+          border-radius: 0.5rem; /* rounded-lg */
+          transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* transition-colors */
+          display: flex;
+          align-items: center;
+          border: none;
+          cursor: pointer;
+        }
+
+        .nav-button svg { /* lucide-react icons */
+          margin-right: 0.5rem; /* mr-2 */
+        }
+
+        /* Product button specific styles */
+        .nav-button.products.active {
+          background-color: #2563eb; /* bg-blue-600 */
+          color: #ffffff; /* text-white */
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        .nav-button.products:not(.active) {
+          color: #4b5563; /* text-gray-700 */
+        }
+        .nav-button.products:not(.active):hover {
+          background-color: #f3f4f6; /* hover:bg-gray-100 */
+        }
+
+        /* Users button specific styles */
+        .nav-button.users.active {
+          background-color: #8b5cf6; /* bg-purple-600 */
+          color: #ffffff; /* text-white */
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        .nav-button.users:not(.active) {
+          color: #4b5563; /* text-gray-700 */
+        }
+        .nav-button.users:not(.active):hover {
+          background-color: #f3f4f6; /* hover:bg-gray-100 */
+        }
+
+        /* Logout button specific styles */
+        .nav-button.logout {
+          background-color: #dc2626; /* bg-red-600 */
+          color: #ffffff; /* text-white */
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+        }
+        .nav-button.logout:hover {
+          background-color: #b91c1c; /* hover:bg-red-700 */
+        }
+
+        /* Main content area */
+        .app-main-content {
+          margin: 2rem auto; /* mt-8 mx-auto */
+          max-width: 48rem; /* max-w-4xl */
+          background-color: #ffffff; /* bg-white */
+          border-radius: 0.75rem; /* rounded-xl */
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-lg */
+          padding: 1.5rem; /* p-6 */
+          margin-bottom: 2rem; /* mb-8 */
+          width: calc(100% - 2rem); /* Account for overall padding of app-main-container */
+          box-sizing: border-box;
+        }
+
+        /* User info display */
+        .user-info-card {
+          text-align: center;
+          margin-bottom: 1.5rem; /* mb-6 */
+          padding: 1rem; /* p-4 */
+          background-color: #f9fafb; /* bg-gray-50 */
+          border-radius: 0.5rem; /* rounded-lg */
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+        }
+
+        .user-info-welcome {
+          font-size: 1.25rem; /* text-xl */
+          color: #1f2937; /* text-gray-800 */
+          margin-bottom: 0.5rem; /* mb-2 */
+        }
+
+        .user-info-welcome strong {
+          font-weight: 600; /* font-semibold */
+        }
+
+        .user-info-details {
+          color: #4b5563; /* text-gray-600 */
+          font-size: 0.875rem; /* text-sm */
+        }
+
+        .user-info-details span {
+          font-weight: 500; /* font-medium */
+        }
+
+        /* Refresh Token button */
+        .refresh-token-button {
+          margin-top: 1rem; /* mt-4 */
+          padding: 0.5rem 1rem; /* px-4 py-2 */
+          background-color: #3b82f6; /* bg-blue-500 */
+          color: #ffffff; /* text-white */
+          font-weight: 600; /* font-semibold */
+          border-radius: 0.5rem; /* rounded-lg */
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+          transition: background-color 0.3s ease; /* transition duration-300 */
+          font-size: 0.875rem; /* text-sm */
+          border: none;
+          cursor: pointer;
+        }
+
+        .refresh-token-button:hover {
+          background-color: #2563eb; /* hover:bg-blue-600 */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .app-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+            }
+            .nav-buttons {
+                margin-top: 0.75rem;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .nav-button {
+                flex-grow: 1; /* Allow buttons to grow and fill space */
+                justify-content: center; /* Center content in buttons */
+            }
+            .header-title {
+                margin-bottom: 0.5rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .app-main-content {
+                margin: 1rem auto;
+                padding: 1rem;
+            }
+            .loading-card, .login-card {
+                padding: 1rem;
+            }
+            .login-title {
+                font-size: 1.5rem;
+            }
+            .login-message {
+                font-size: 1rem;
+            }
+            .user-info-welcome {
+                font-size: 1rem;
+            }
+        }
